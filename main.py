@@ -15,7 +15,6 @@ def switch_pref(password, device_ip):
     mc = MC801A(password=password, device_ip=device_ip)
     response = mc.perform_backdoor()
 
-    STATE = True
     if STATE:
         STATE = False
         return mc.change_mode(BearerPreference="LTE_AND_5G", AD=hex_md5(hex_md5(mc.get_version())+mc.get_rd()))
